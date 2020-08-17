@@ -5,24 +5,24 @@ from PIL import ImageTk
 class Login:
     def __init__(self,root):
         self.root=root
-        self.root.title("Login System")
-        self.root.geometry("2500x1400+1000+500")
+        self.root.title("Student Management System")
+        self.root.geometry("1350x700+0+0")
       
 
         #ALL IMAGES
-        self.bg_icon=ImageTk.PhotoImage(file="images/bg.jpg")
-        self.logo_icon=ImageTk.PhotoImage(file="images/client1.png")
+        self.bg_icon=ImageTk.PhotoImage(file="images/lg.png")
+        self.logo_icon=ImageTk.PhotoImage( file="images/client1.png")
     
         self.uname=StringVar()
         self.pass_=StringVar()
 
         bg_lbl=Label(self.root,image=self.bg_icon).pack()
 
-        title=Label(self.root,text="Login System", font=("times new roman",40,"bold"),bg="blue",fg="black",bd=10,relief=GROOVE)
-        title.place(x=0,y=0,relwidth=1)
+       # title=Label(self.root,text="Login System", font=("times new roman",40,"bold"),bg="blue",fg="black",bd=10,relief=GROOVE)
+        #title.place(x=0,y=0,relwidth=1)
 
         Login_Frame=Frame(self.root,bg="white")
-        Login_Frame.place(x=500,y=200)
+        Login_Frame.place(x=460,y=200)
 
         logolbl=Label(Login_Frame,image=self.logo_icon,bd=0).grid(row=0,columnspan=2,pady=20)
 
@@ -38,11 +38,15 @@ class Login:
     def loginfunction(self):
         #print(self.uname.get(),self.pass_.get())
         if self.uname.get()=="" or self.pass_.get()=="":
-            messagebox.showerror("Error","All fields are required")
+            messagebox.showerror("Error","All fields are required")           
         elif self.uname.get()=="madusha" and self.pass_.get()=="123456":
-            messagebox.showinfo("successfully login",f"welcome {self.uname.get()}")
+            #messagebox.showinfo("successfully login",f"welcome {self.uname.get()}")
+            self.root.destroy()
+            import Student
+            Student.File_App()
         else:
             messagebox.showerror("Error","Invalid usename & password")
+
 root=Tk()  
 obj=Login(root)
 root.mainloop()
