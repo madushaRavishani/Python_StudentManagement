@@ -43,7 +43,7 @@ class Login:
             #messagebox.showinfo("successfully login",f"welcome {self.uname.get()}")
             self.root.destroy()
             import Student
-            Student.File_App()
+            #Student.File_App()
         else:
             messagebox.showerror("Error","Invalid usename & password")
 
